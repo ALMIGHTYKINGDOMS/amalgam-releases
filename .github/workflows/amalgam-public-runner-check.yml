@@ -1,0 +1,15 @@
+name: Amalgam public Windows runner access check
+on:
+  workflow_dispatch:
+permissions: {}
+jobs:
+  runner-check:
+    runs-on: windows-2022
+    timeout-minutes: 3
+    steps:
+      - name: Confirm standard Windows runner availability
+        shell: pwsh
+        run: |
+          Write-Output "Amalgam standard public-repository Windows runner check."
+          Write-Output "OS: $([System.Environment]::OSVersion.VersionString)"
+          Write-Output "No launcher source, credentials, builds, artifacts or publishing."
